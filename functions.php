@@ -103,6 +103,7 @@
             foreach($categories as $cd){
                 $data['name'] = $cd->cat_name;
                 $data['id'] = $cd->term_id;
+                $data['slug'] = $cd->slug;
                 $filteredCategory[] = $data;
             }
 
@@ -126,12 +127,17 @@
         ));
     });
 
-    function get_all_posts() {
-        $posts = get_posts();
+    function get_all_posts($request) {
+        $page = $request->get_param('page') ? $request->get_param('page') : 1;
+        $query = new WP_Query(array('post_type' => 'post', 'paged' => $page, 'posts_per_page' => 12));
+        $posts = $query->posts;
+        $data = [];
         foreach ( $posts as $post) {
            format_post($post);
         }
-        return $posts;
+        $data['posts'] = $posts;
+        $data['max_num_pages'] = $query->max_num_pages;
+        return $data;
     }
 
 ?>
