@@ -113,8 +113,17 @@
         $post_thumbnail_id = get_post_thumbnail_id($post->ID);
         $imageSrc = wp_get_attachment_image_src($post_thumbnail_id, 'thumbnail');
         $post->{'featured_media'} = $imageSrc ? $imageSrc[0]: false;
+
         $post->{'author_name'} = get_the_author_meta('display_name', $post->post_author);
         $post->{'excerpt'} = get_the_excerpt($post->ID);
+
+        $fields = get_fields($post->ID);
+        if ($fields) {
+            foreach(array_keys($fields) as $key) {
+                $post->{$key} = $fields[$key];
+            }
+        }
+
         return $post;
     }
 ?>
@@ -128,8 +137,25 @@
     });
 
     function get_all_posts($request) {
+
         $page = $request->get_param('page') ? $request->get_param('page') : 1;
-        $query = new WP_Query(array('post_type' => 'post', 'paged' => $page, 'posts_per_page' => 12));
+
+        $year = $request->get_param('year') ? $request->get_param('year') : date('Y');
+
+        $query = new WP_Query(
+            array(
+                'post_type' => 'post', 
+                'paged' => $page, 
+                'posts_per_page' => 12,
+                'date_query' => array(
+                    array( 
+                        'year' => $year,
+                        'compare' => '=='
+                    ),
+                )
+            )
+        );
+
         $posts = $query->posts;
         $data = [];
         foreach ( $posts as $post) {
@@ -137,6 +163,7 @@
         }
         $data['posts'] = $posts;
         $data['max_num_pages'] = $query->max_num_pages;
+        $data['from_year'] = $year;
         return $data;
     }
 

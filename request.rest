@@ -1,0 +1,4 @@
+GET http://127.0.0.1/blog/wp-json/wp/v2/get-post-by-id/64
+#######
+
+# GET http://127.0.0.1/blog/wp-json/wp/v2/get-all-posts/?year=2021
