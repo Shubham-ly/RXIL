@@ -1,4 +1,12 @@
-GET http://127.0.0.1/blog/wp-json/wp/v2/get-post-by-id/64
+# GET http://127.0.0.1/blog/wp-json/wp/v2/get-post-by-id/335
 #######
 
 # GET http://127.0.0.1/blog/wp-json/wp/v2/get-all-posts/?year=2021
+
+#######
+# GET http://127.0.0.1/blog/wp-json/wp/v2/pages?slug="home-page"
+# GET http://127.0.0.1/blog/wp-json/wp/v2/get-global-styles
+
+
+#######
+GET http://127.0.0.1/blog/wp-json/wp/v2/get-nav-links

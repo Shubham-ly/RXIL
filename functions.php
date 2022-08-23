@@ -35,7 +35,7 @@
 
 <?php 
     add_action('rest_api_init', function () {
-        register_rest_route('wp/v2', 'get-home', 
+        register_rest_route('wp/v2', 'get-global-styles', 
             array(
                 'methods'  => 'GET',
                 'callback' => 'get_home',
@@ -182,6 +182,51 @@
         $post = get_post($post_id);
         format_post($post);
         return $post;
+    }
+
+?>
+
+<?php
+    add_action( 'rest_api_init', function () {
+        register_rest_route( 'wp/v2', '/get-nav-links', array(
+            'methods' => 'GET',
+            'callback' => 'get_nav_links',
+        ));
+    });
+
+    function get_page_link_info($page) {
+        return array(
+            'page_name' => $page->post_title,
+            'page_url' => get_permalink($page->ID),
+        );
+    }
+
+    function get_nav_links() {
+        $pages = get_pages(array('sort_column' => 'menu_order'));
+        $nav_links = [];
+        foreach( $pages as $page ) {
+            
+            if ($page->post_parent) continue;
+
+            $sub_page_query = array(
+                'post_type' => 'page',
+                'post_status' => 'publish',
+                'parent' => $page->ID,
+                'sort_column' => 'menu_order'
+            );
+            $sub_pages = get_pages( $sub_page_query );
+            $sub_pages_link_info = [];
+
+            foreach ( $sub_pages as $sub_page) {
+                $sub_pages_link_info[] = get_page_link_info($sub_page);
+            }
+
+            $nav_links[] = array_merge(
+                get_page_link_info($page),
+                array( 'sub_links' => $sub_pages_link_info ),
+            );
+        }
+        return $nav_links;
     }
 
 ?>
