@@ -196,8 +196,8 @@
 
     function get_page_link_info($page) {
         return array(
-            'page_name' => $page->post_title,
-            'page_url' => get_permalink($page->ID),
+            'name' => $page->post_title,
+            'slug' => $page->post_name,
         );
     }
 
@@ -227,6 +227,58 @@
             );
         }
         return $nav_links;
+    }
+
+?>
+
+<?php 
+    add_action( 'rest_api_init', function() {
+        register_rest_route('wp/v2', '/get-page-by-id/(?P<slug>[a-zA-Z0-9-]+)', array(
+            'method' => 'GET',
+            'callback' => 'fetch_page_content'
+        ));
+    });
+
+    function fetch_page_content($request) {
+        $page_slug = $request->get_param('slug');
+        $page = get_page_by_path($page_slug);
+        $response = wp_remote_get(home_url() . "/" . $page_slug);
+        $page_styles = get_css_from_page($response);
+        $page->{'styles'} = $page_styles;
+        return $page;
+    }
+
+?>
+
+<?php 
+
+
+add_action( 'rest_api_init', function() {
+    register_rest_route('wp/v2', '/get-page-resources/(?P<slug>[a-zA-Z0-9-]+)', array(
+        'method' => 'GET',
+        'callback' => 'get_page_resources'
+    ));
+});
+
+function get_page_resources ($request) {
+    $page = $request->get_param('slug');
+    
+    $current_directory = home_url() . '/wp-content/themes/twentytwentytwo-child/';
+
+        return array(
+            'style' => $current_directory . '/styles/' . $page . '.css',
+            'script' => $current_directory . '/scripts/' . $page . '.js'
+        );
+    }
+
+    add_action( 'rest_api_init', function() {
+        register_rest_route('wp/v2', '/get-script', array(
+            'method' => 'GET',
+            'callback' => 'get_global_script'
+        ));
+    } );
+
+    function get_global_script() {
     }
 
 ?>
