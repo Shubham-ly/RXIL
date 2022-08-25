@@ -253,17 +253,17 @@
 <?php 
 
 
-add_action( 'rest_api_init', function() {
-    register_rest_route('wp/v2', '/get-page-resources/(?P<slug>[a-zA-Z0-9-]+)', array(
-        'method' => 'GET',
-        'callback' => 'get_page_resources'
-    ));
-});
+    add_action( 'rest_api_init', function() {
+        register_rest_route('wp/v2', '/get-page-resources/(?P<slug>[a-zA-Z0-9-]+)', array(
+            'method' => 'GET',
+            'callback' => 'get_page_resources'
+        ));
+    });
 
-function get_page_resources ($request) {
-    $page = $request->get_param('slug');
-    
-    $current_directory = home_url() . '/wp-content/themes/twentytwentytwo-child/';
+    function get_page_resources ($request) {
+        $page = $request->get_param('slug');
+        
+        $current_directory = home_url() . '/wp-content/themes/twentytwentytwo-child/';
 
         return array(
             'style' => $current_directory . '/styles/' . $page . '.css',
@@ -271,14 +271,46 @@ function get_page_resources ($request) {
         );
     }
 
-    add_action( 'rest_api_init', function() {
-        register_rest_route('wp/v2', '/get-script', array(
-            'method' => 'GET',
-            'callback' => 'get_global_script'
-        ));
-    } );
 
-    function get_global_script() {
+?>
+
+<?php 
+    add_action( 'rest_api_init', function () {
+        register_rest_route( 'wp/v2', '/get-page-body/(?P<slug>[a-zA-Z0-9-]+)', array(
+            'methods' => 'GET',
+            'callback' => 'get_page_body',
+        ));
+    });
+
+    function DOMinnerHTML(DOMNode $element) { 
+        $innerHTML = ""; 
+        $children  = $element->childNodes;
+        foreach ($children as $child)  { 
+            $innerHTML .= $element->ownerDocument->saveHTML($child);
+        }
+        return $innerHTML; 
+    } 
+
+    function get_page_body($request) {
+        $page_slug = $request->get_param('slug');
+        $response = wp_remote_get(home_url() . '/' . $page_slug);
+
+        if (is_array($response)) {
+            $content = $response['body'];
+
+            $document = new DOMDocument();
+            libxml_use_internal_errors(true);
+            $document->loadHTML($content);
+            libxml_use_internal_errors(false);
+
+            $body = $document->getElementsByTagName('body')->item(0);
+            $res = '';
+            foreach ($body->childNodes as $child) {
+                $res .= DOMinnerHTML($child);
+            }
+            return $res;
+
+        }
     }
 
 ?>

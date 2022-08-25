@@ -4,7 +4,7 @@
 # GET http://127.0.0.1/blog/wp-json/wp/v2/get-all-posts/?year=2021
 
 #######
-# GET http://127.0.0.1/blog/wp-json/wp/v2/pages?slug="home-page"
+# GET http://127.0.0.1/blog/wp-json/wp/v2/pages?slug="home"
 # GET http://127.0.0.1/blog/wp-json/wp/v2/get-global-styles
 
 
@@ -12,4 +12,8 @@
 # GET http://127.0.0.1/blog/wp-json/wp/v2/get-nav-links
 
 #######
-GET http://127.0.0.1/blog/wp-json/wp/v2/get-page-resources/home
+# GET http://127.0.0.1/blog/wp-json/wp/v2/get-page-resources/home
+
+
+#######
+GET http://127.0.0.1/blog/wp-json/wp/v2/get-page-body/home
