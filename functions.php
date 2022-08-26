@@ -198,6 +198,7 @@
         return array(
             'name' => $page->post_title,
             'slug' => $page->post_name,
+            'url' => get_permalink($page->ID),
         );
     }
 
@@ -303,11 +304,12 @@
             $document->loadHTML($content);
             libxml_use_internal_errors(false);
 
-            $body = $document->getElementsByTagName('body')->item(0);
-            $res = '';
-            foreach ($body->childNodes as $child) {
-                $res .= DOMinnerHTML($child);
-            }
+            $body = $document->getElementsByTagName('main')->item(0);
+            $content = DOMinnerHTML($body);
+            // $res = DOMinnerHTML($body->childNodes->item(4));
+            // var_dump($res);
+            $res = new stdClass();
+            $res->{'content'} = $content;
             return $res;
 
         }

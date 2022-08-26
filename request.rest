@@ -9,7 +9,7 @@
 
 
 #######
-# GET http://127.0.0.1/blog/wp-json/wp/v2/get-nav-links
+GET http://127.0.0.1/blog/wp-json/wp/v2/get-nav-links
 
 #######
 # GET http://127.0.0.1/blog/wp-json/wp/v2/get-page-resources/home
