@@ -1,0 +1,40 @@
+/*
+ Theme Name:   Twenty Twenty Two Child
+ Description:  Twenty Twenty Two Child Theme
+ Author:       Shubham Maurya
+ Author URI:   https://shubham-maurya13.netlify.app
+ Template:     twentytwentytwo
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twentyfifteenchild
+*/
+
+:root {
+  --color-primary: #358ccb;
+  --color-black: #1e2123;
+  --color-secondary-purple: #64607d;
+  --color-gray: #cfd1d5;
+  --color-purple: #333d83;
+  --border-radius: 10px;
+}
+
+* {
+  // font-family: "Merriweather Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+.primary-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.secondary-title {
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--color-black);
+}
+
+@import "./styles/home.scss";

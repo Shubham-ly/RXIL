@@ -266,9 +266,10 @@
         
         $current_directory = home_url() . '/wp-content/themes/twentytwentytwo-child/';
 
+        //! TODO: Don't send the link if script or style does not exists
         return array(
-            'style' => $current_directory . '/styles/' . $page . '.css',
-            'script' => $current_directory . '/scripts/' . $page . '.js'
+            'style' => $current_directory . 'styles/' . $page . '.css',
+            'script' => $current_directory . 'scripts/' . $page . '.js'
         );
     }
 
@@ -306,8 +307,6 @@
 
             $body = $document->getElementsByTagName('main')->item(0);
             $content = DOMinnerHTML($body);
-            // $res = DOMinnerHTML($body->childNodes->item(4));
-            // var_dump($res);
             $res = new stdClass();
             $res->{'content'} = $content;
             return $res;
@@ -315,4 +314,18 @@
         }
     }
 
+?>
+
+<?php 
+    add_action( 'rest_api_init', function () {
+        register_rest_route('wp/v2', '/get-styles', array(
+            'method' => 'GET',
+            'callback' => 'get_styles'
+        ));
+    });
+    function get_styles() {
+        return array(
+            'link' => get_stylesheet_uri()
+        );
+    }
 ?>
