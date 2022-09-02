@@ -37,4 +37,13 @@
   color: var(--color-black);
 }
 
-@import "./styles/home.scss";
+.card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 2px 40px 0px #333d8317;
+}
+
+@import "./styles/home/home.scss";
+@import "./styles/about/about-us.scss";
+@import "./styles/treds/treds.scss";
+@import "./styles/contact/contact-us.scss";

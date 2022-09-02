@@ -35,6 +35,12 @@
   color: var(--color-black);
 }
 
+.card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 2px 40px 0px rgba(51, 61, 131, 0.0901960784);
+}
+
 .home__sticky-social {
   background-color: white;
   display: flex;
@@ -199,4 +205,200 @@
   border-radius: var(--border-radius);
   padding: 12px 32px;
   font-weight: 700px;
+}
+
+.about__rxil {
+  padding: 80px 72px;
+  background: linear-gradient(0deg, rgba(199, 234, 251, 0.2), rgba(199, 234, 251, 0.2)), linear-gradient(0deg, #fafbff, #fafbff);
+  display: flex;
+  gap: 48px;
+}
+.about__rxil .about-container h4 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e2123;
+}
+.about__rxil .about-container p {
+  margin-top: 24px;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--color-secondary-purple);
+}
+
+.about__principles {
+  margin-top: 64px;
+  padding: 48px 72px;
+}
+.about__principles .primary-title {
+  text-align: center;
+}
+.about__principles .secondary-title {
+  margin-top: 16px;
+  text-align: center;
+}
+.about__principles .inner-content {
+  margin-top: 56px;
+  display: flex;
+  gap: 70px;
+}
+.about__principles .inner-content .title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+.about__principles .inner-content .description {
+  margin-top: 15px;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--color-secondary-purple);
+}
+
+.about__i-care {
+  padding: 48px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.about__i-care .title {
+  text-align: center;
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.about__rxil-promoters {
+  margin-top: 72px;
+}
+.about__rxil-promoters .primary-title {
+  margin-top: 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.about__rxil-promoters .secondary-title {
+  margin-top: 16px;
+  text-align: center;
+  margin-bottom: 56px;
+}
+.about__rxil-promoters .testimonials {
+  display: flex;
+  gap: 32px;
+}
+.about__rxil-promoters .testimonials .testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about__rxil-directors {
+  margin-top: 72px;
+  padding: 48px 72px;
+}
+.about__rxil-directors .primary-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.about__rxil-directors .secondary-title {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.treds__about {
+  padding: 80px 48px 152px 72px;
+  display: flex;
+  gap: 78px;
+  background: linear-gradient(0deg, rgba(199, 234, 251, 0.26), rgba(199, 234, 251, 0.26)), linear-gradient(0deg, #fafbff, #fafbff);
+}
+.treds__about .about-container h4 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e2123;
+}
+.treds__about .about-container p {
+  color: #4c4f69;
+  font-size: 20px;
+  margin-top: 24px;
+}
+
+.treds__register {
+  padding: 48px 72px;
+}
+.treds__register .primary-title {
+  text-align: center;
+}
+.treds__register .secondary-title {
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+.treds__register .process-container {
+  display: flex;
+  gap: 34px;
+  position: relative;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+.treds__register .process-container::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-primary);
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.treds__register .register-button {
+  padding: 12px 40px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 40px;
+  margin-inline: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: white;
+}
+
+.treds__benefits {
+  padding: 48px 72px 56px;
+}
+.treds__benefits .primary-title {
+  text-transform: uppercase;
+  text-align: center;
+}
+.treds__benefits .secondary-title {
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+
+.treds__exchange-process {
+  margin-top: 72px;
+  padding: 56px 69px;
+}
+.treds__exchange-process .primary-title {
+  text-align: center;
+}
+.treds__exchange-process .secondary-title {
+  text-align: center;
+  margin-top: 13px;
+}
+.treds__exchange-process .primary-title.second {
+  margin-top: 67px;
+}
+
+.contact__header {
+  padding: 52px 72px;
+  text-align: center;
+  height: 326px;
+}
+.contact__header p {
+  margin-top: 24px;
+  font-size: 20px;
+  margin-bottom: 32px;
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,96 @@
+.about__rxil {
+  padding: 80px 72px;
+  background: linear-gradient(0deg, rgba(199, 234, 251, 0.2), rgba(199, 234, 251, 0.2)), linear-gradient(0deg, #fafbff, #fafbff);
+  display: flex;
+  gap: 48px;
+}
+.about__rxil .about-container h4 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e2123;
+}
+.about__rxil .about-container p {
+  margin-top: 24px;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--color-secondary-purple);
+}
+
+.about__principles {
+  margin-top: 64px;
+  padding: 48px 72px;
+}
+.about__principles .primary-title {
+  text-align: center;
+}
+.about__principles .secondary-title {
+  margin-top: 16px;
+  text-align: center;
+}
+.about__principles .inner-content {
+  margin-top: 56px;
+  display: flex;
+  gap: 70px;
+}
+.about__principles .inner-content .title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+.about__principles .inner-content .description {
+  margin-top: 15px;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--color-secondary-purple);
+}
+
+.about__i-care {
+  padding: 48px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.about__i-care .title {
+  text-align: center;
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.about__rxil-promoters {
+  margin-top: 72px;
+}
+.about__rxil-promoters .primary-title {
+  margin-top: 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.about__rxil-promoters .secondary-title {
+  margin-top: 16px;
+  text-align: center;
+  margin-bottom: 56px;
+}
+.about__rxil-promoters .testimonials {
+  display: flex;
+  gap: 32px;
+}
+.about__rxil-promoters .testimonials .testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about__rxil-directors {
+  margin-top: 72px;
+  padding: 48px 72px;
+}
+.about__rxil-directors .primary-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.about__rxil-directors .secondary-title {
+  text-align: center;
+  margin-top: 16px;
+}/*# sourceMappingURL=about-us.css.map */

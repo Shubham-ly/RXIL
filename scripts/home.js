@@ -1,12 +1,11 @@
-console.log("Hello World!")
 
-const homeCarousel = new Flickity('.home-carousel', {
+var homeCarousel = new Flickity('.home-carousel', {
 	wrapAround: true,
-	draggable: false,
 	autoPlay: true,
 	pauseAutoPlayOnHover: false
 })
 
-const userReviewsCarousel = new Flickity('.user-reviews-carousel', {
-	wrapAround: true,
+var userReviewsCarousel = new Flickity('.user-reviews-carousel', {
+	wrapAround: false,
+	draggable: true,
 })

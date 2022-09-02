@@ -306,11 +306,12 @@
             libxml_use_internal_errors(false);
 
             $body = $document->getElementsByTagName('main')->item(0);
-            $content = DOMinnerHTML($body);
-            $res = new stdClass();
-            $res->{'content'} = $content;
-            return $res;
-
+            if ($body) {
+                $content = DOMinnerHTML($body);
+                $res = new stdClass();
+                $res->{'content'} = $content;
+                return $res;
+            }
         }
     }
 
