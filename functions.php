@@ -330,3 +330,37 @@
         );
     }
 ?>
+
+<?php 
+    //? Adding custom taxonomy
+    function add_resource_type_taxonomy () {
+        register_taxonomy('resource-category', 'post', array(
+            'hierarchical' => true,
+            'labels' => array(
+                'name' => _x( 'Resource Categories', 'taxonomy general name' ),
+                'singular_name' => _x('Resource Category', 'taxonomy singular name'),
+                'search_items' =>  __('Search Resource Category'),
+                'all_items' => __( 'All Resource Categories'),
+                'parent_item' => __( 'Parent Resource Category' ),
+                'parent_item_colon' => __( 'Parent Resource Category:' ),
+                'edit_item' => __( 'Edit Resource Category' ),
+                'update_item' => __( 'Update Resource Category' ),
+                'add_new_item' => __( 'Add New Resource Category' ),
+                'new_item_name' => __( 'New Resource Category' ),
+                'menu_name' => __( 'Resource Categories' ),
+            ),
+            'rewrite' => array(
+                'slug' => 'locations',  
+                'with_front' => false,
+                'hierarchical' => true,
+            ),
+        ));
+    }
+    add_action('init', 'add_resource_type_taxonomy', 0);
+
+
+    add_action('init', function() {
+        register_taxonomy_for_object_type('resource-category', 'attachment');
+    });
+
+?>

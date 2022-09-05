@@ -17,6 +17,9 @@
   --color-gray: #cfd1d5;
   --color-purple: #333d83;
   --border-radius: 10px;
+  --color-bg: #f5f5f5;
+  --color-red: #f44336;
+  --color-orange: #f68b1f;
 }
 
 * {
@@ -29,6 +32,10 @@
   color: var(--color-primary);
 }
 
+body {
+  background-color: var(--color-bg);
+}
+
 .secondary-title {
   font-weight: 800;
   font-size: 32px;
@@ -39,6 +46,79 @@
   background-color: white;
   border-radius: var(--border-radius);
   box-shadow: 0px 2px 40px 0px rgba(51, 61, 131, 0.0901960784);
+}
+
+textarea,
+input:not([type=radio]) {
+  font-family: inherit;
+  min-width: 300px;
+  padding: 18px 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  border: 2px solid #c3dff3;
+}
+textarea::-moz-placeholder, input:not([type=radio])::-moz-placeholder {
+  color: var(--color-secondary-purple);
+  font-weight: 400;
+}
+textarea:-ms-input-placeholder, input:not([type=radio]):-ms-input-placeholder {
+  color: var(--color-secondary-purple);
+  font-weight: 400;
+}
+textarea::placeholder,
+input:not([type=radio])::placeholder {
+  color: var(--color-secondary-purple);
+  font-weight: 400;
+}
+
+label span {
+  color: var(--color-red);
+}
+
+form.card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-inline: auto;
+  max-width: 744px;
+}
+form .field {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+form .field input {
+  color: var(--color-secondary-purple);
+}
+form .field .wrapper {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+form .field label {
+  font-size: 14px;
+  text-align: left;
+}
+form .field .radio-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+button.primary {
+  align-self: center;
+  border: none;
+  color: white;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  background-color: var(--color-primary);
+  padding: 12px 45px;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .home__sticky-social {
@@ -391,14 +471,96 @@
 .treds__exchange-process .primary-title.second {
   margin-top: 67px;
 }
+.treds__exchange-process .image {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
 
 .contact__header {
   padding: 52px 72px;
   text-align: center;
-  height: 326px;
 }
 .contact__header p {
   margin-top: 24px;
   font-size: 20px;
   margin-bottom: 32px;
+}
+
+.contact__relationship {
+  padding-inline: 72px;
+  text-align: center;
+}
+.contact__relationship .secondary-title {
+  font-size: 26px;
+}
+.contact__relationship p {
+  color: var(--color-secondary-purple);
+  font-size: 20px;
+  margin-inline: 84px;
+  margin-top: 32px;
+}
+.contact__relationship .relationship-management {
+  margin-top: 40px;
+  margin-bottom: 56px;
+}
+.contact__relationship .relationship-management .secondary-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+.contact__relationship .relationship-management .direction {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-orange);
+  margin-bottom: 32px;
+  margin-top: 56px;
+  text-align: center;
+}
+.contact__relationship .relationship-management .west-team-container, .contact__relationship .relationship-management .east-team-container, .contact__relationship .relationship-management .north-team-container, .contact__relationship .relationship-management .south-team-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 900px) {
+  .contact__relationship .relationship-management .west-team-container, .contact__relationship .relationship-management .east-team-container, .contact__relationship .relationship-management .north-team-container, .contact__relationship .relationship-management .south-team-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .contact__relationship .relationship-management .west-team-container, .contact__relationship .relationship-management .east-team-container, .contact__relationship .relationship-management .north-team-container, .contact__relationship .relationship-management .south-team-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
+@media (min-width: 1440px) {
+  .contact__relationship .relationship-management .west-team-container, .contact__relationship .relationship-management .east-team-container, .contact__relationship .relationship-management .north-team-container, .contact__relationship .relationship-management .south-team-container {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 32px;
+  }
+}
+@media (min-width: 1440px) {
+  .contact__relationship .relationship-management .south-team-container {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+  }
+}
+@media (min-width: 1440px) {
+  .contact__relationship .relationship-management .north-team-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .contact__relationship .relationship-management .east-team-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+@media (min-width: 1440px) {
+  .contact__relationship .relationship-management .east-team-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
 }/*# sourceMappingURL=style.css.map */

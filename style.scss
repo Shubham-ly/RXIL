@@ -18,6 +18,9 @@
   --color-gray: #cfd1d5;
   --color-purple: #333d83;
   --border-radius: 10px;
+  --color-bg: #f5f5f5;
+  --color-red: #f44336;
+  --color-orange: #f68b1f;
 }
 
 * {
@@ -29,6 +32,10 @@
   font-size: 20px;
   font-weight: 700;
   color: var(--color-primary);
+}
+
+body {
+  background-color: var(--color-bg);
 }
 
 .secondary-title {
@@ -43,6 +50,75 @@
   box-shadow: 0px 2px 40px 0px #333d8317;
 }
 
+textarea,
+input:not([type="radio"]) {
+  font-family: inherit;
+  min-width: 300px;
+  padding: 18px 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  border: 2px solid #c3dff3;
+
+  &::placeholder {
+    color: var(--color-secondary-purple);
+    font-weight: 400;
+  }
+}
+
+label span {
+  color: var(--color-red);
+}
+
+form {
+  &.card {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-inline: auto;
+    max-width: 744px;
+  }
+
+  .field {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+
+    input {
+      color: var(--color-secondary-purple);
+    }
+
+    .wrapper {
+      display: flex;
+      gap: 16px;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .radio-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      margin-top: 16px;
+    }
+  }
+}
+
+button.primary {
+  align-self: center;
+  border: none;
+  color: white;
+  max-width: fit-content;
+  background-color: var(--color-primary);
+  padding: 12px 45px;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  cursor: pointer;
+}
 @import "./styles/home/home.scss";
 @import "./styles/about/about-us.scss";
 @import "./styles/treds/treds.scss";

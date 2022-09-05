@@ -84,4 +84,9 @@
 }
 .treds__exchange-process .primary-title.second {
   margin-top: 67px;
+}
+.treds__exchange-process .image {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=treds.css.map */
