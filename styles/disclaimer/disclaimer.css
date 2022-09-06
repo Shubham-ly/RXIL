@@ -1,0 +1,17 @@
+.disclaimer_container {
+  padding: 48px 72px;
+}
+.disclaimer_container .secondary-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.disclaimer_container li {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: var(--color-secondary-purple);
+}
+.disclaimer_container ul ul {
+  margin-left: 34px;
+}/*# sourceMappingURL=disclaimer.css.map */

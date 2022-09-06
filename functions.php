@@ -34,21 +34,6 @@
 ?>
 
 <?php 
-    add_action('rest_api_init', function () {
-        register_rest_route('wp/v2', 'get-global-styles', 
-            array(
-                'methods'  => 'GET',
-                'callback' => 'get_home',
-            )
-        );
-    });
-    function get_home($request) {
-        $response = wp_remote_get(home_url());
-        return get_css_from_page($response);
-    }
-?>
-
-<?php 
     function add_cors_http_header(){
         header("Access-Control-Allow-Origin: *");
     }
@@ -203,7 +188,11 @@
     }
 
     function get_nav_links() {
-        $pages = get_pages(array('sort_column' => 'menu_order'));
+        $args = array(
+            'sort_column' => 'menu_order',
+            'meta_key' => 'show_on_navbar',
+        );
+        $pages = get_pages($args);
         $nav_links = [];
         foreach( $pages as $page ) {
             
@@ -266,7 +255,6 @@
         
         $current_directory = home_url() . '/wp-content/themes/twentytwentytwo-child/';
 
-        //! TODO: Don't send the link if script or style does not exists
         return array(
             'style' => $current_directory . 'styles/' . $page . '.css',
             'script' => $current_directory . 'scripts/' . $page . '.js'
@@ -349,8 +337,9 @@
                 'new_item_name' => __( 'New Resource Category' ),
                 'menu_name' => __( 'Resource Categories' ),
             ),
+            'show_in_rest' => true,
             'rewrite' => array(
-                'slug' => 'locations',  
+                'slug' => 'resources',  
                 'with_front' => false,
                 'hierarchical' => true,
             ),
@@ -358,9 +347,99 @@
     }
     add_action('init', 'add_resource_type_taxonomy', 0);
 
-
     add_action('init', function() {
         register_taxonomy_for_object_type('resource-category', 'attachment');
     });
+
+    add_action('rest_api_init', function () {
+        register_rest_route('wp/v2', '/get-resource-categories', array(
+            'method' => 'GET',
+            'callback' => 'get_resource_categories'
+        ));
+    });
+    function get_resource_categories() {
+
+        $categories = get_terms(array(
+            'taxonomy' => 'resource-category',
+            'parent'   => 0,
+            "hide_empty" => 0,
+        ));
+
+        $response = array();
+
+        foreach (array_reverse($categories) as $category) {
+            $response[] = array(
+                'id' => $category->term_id,
+                'name' => $category->name,
+                'slug' => $category->slug,
+                
+            );
+        }
+
+        return $response;
+    }
+
+    add_action('rest_api_init', function () {
+        register_rest_route('wp/v2', '/get-rxil-resources', array(
+            'methods' => 'GET',
+            'callback' => 'get_rxil_resources',
+        ));
+    });
+
+    function get_rxil_resources ($request)  {
+        $page = $request->get_param('page') ? $request->get_param('page') : 1;
+        $year = $request->get_param('year') ? $request->get_param('year') : date('Y');
+        $category_id = $request->get_param('category_id');
+
+        $unsupported_mimes  = array( 'image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/tiff', 'image/x-icon' );
+        $all_mimes = get_allowed_mime_types();
+        $accepted_mimes = array_diff( $all_mimes, $unsupported_mimes );
+
+        $args = array(
+            'post_type' => 'attachment',
+            'paged' => $page,
+            'posts_per_page' => 9,
+            'post_status' => 'inherit',
+            'post_mime_type' => $accepted_mimes,
+            'date_query' => array(
+                array(
+                    'year' => $year,
+                    'compare' => '=='
+                ),
+            ),
+        ); 
+
+        if ($category_id) {
+            $args['tax_query'] = array(
+                'taxonomy' => 'resource-category',
+                'field' => 'id',
+                'term' => $category_id
+            );
+        }
+
+        $query = new WP_Query($args);
+        $attachments = $query->posts;
+
+        foreach ($attachments as $post) {
+            $post_categories = get_the_terms( $post->ID, 'resource-category' );
+            
+            $post->{'categories'} = array(
+                'name' => $post_categories[0]->name,
+                'slug' => $post_categories[0]->slug,
+                'id' => $post_categories[0]->term_id,
+            );
+        }
+
+        return array(
+            'resources' => $attachments,
+            'max_num_pages' => $query->max_num_pages,
+            'from_year' => $year
+        );
+
+    }
+
+?>
+
+<?php 
 
 ?>
