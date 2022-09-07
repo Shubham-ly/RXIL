@@ -1,0 +1,43 @@
+.careers__header {
+  background-color: rgba(199, 234, 251, 0.2588235294);
+  text-align: center;
+}
+.careers__header .secondary-title {
+  margin-top: 53px;
+}
+.careers__header p {
+  margin-top: 25px;
+  margin-bottom: 64px;
+  color: var(--color-secondary-purple);
+}
+
+.careers__culture {
+  margin-top: 56px;
+}
+.careers__culture .secondary-title {
+  text-align: center;
+}
+.careers__culture p {
+  margin-top: 24px;
+  margin-bottom: 40px;
+  color: var(--color-secondary-purple);
+  padding-inline: 72px;
+}
+
+.careers__why_rxil {
+  padding: 48px 72px;
+}
+.careers__why_rxil .secondary-title {
+  text-align: center;
+}
+.careers__why_rxil p {
+  color: var(--color-secondary-purple);
+  margin-top: 24px;
+}
+.careers__why_rxil .perks-benefits {
+  margin-top: 40px;
+}
+.careers__why_rxil .perks-benefits .secondary-title {
+  text-align: center;
+  font-size: 26px;
+}/*# sourceMappingURL=careers.css.map */

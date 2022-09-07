@@ -1,0 +1,15 @@
+.useful__container {
+  padding-top: 52px;
+  padding-bottom: 64px;
+  background-color: rgba(199, 234, 251, 0.2588235294);
+  text-align: center;
+}
+.useful__container .secondary-title {
+  font-weight: 800;
+  font-size: 32px;
+}
+.useful__container p {
+  margin-top: 24px;
+  color: var(--color-secondary-purple);
+  font-size: 20px;
+}/*# sourceMappingURL=useful-links.css.map */

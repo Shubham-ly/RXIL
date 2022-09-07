@@ -322,7 +322,7 @@
 <?php 
     //? Adding custom taxonomy
     function add_resource_type_taxonomy () {
-        register_taxonomy('resource-category', 'post', array(
+        register_taxonomy('resource-category', '', array(
             'hierarchical' => true,
             'labels' => array(
                 'name' => _x( 'Resource Categories', 'taxonomy general name' ),
@@ -441,5 +441,67 @@
 ?>
 
 <?php 
+    function format_job($job) {
+        $data_fields = get_fields($job->ID);
+        foreach($data_fields as $key=>$data) {
+            $job->{$key} = $data;
+        }
+        $department = get_the_terms($job->ID, "departments")[0];
+        $job->{'department'} = array_merge(
+            array(
+                'id' => $department->term_id,
+                'name' => $department->name,
+                'slug' => $department->slug,
+            ),
+            get_fields($department->taxonomy . "_" . $department->term_id)
+        );
+    }
+?>
+
+<?php 
+    add_action('rest_api_init', function () {
+        register_rest_route('wp/v2', '/get-job-openings', array(
+            'method' => 'GET',
+            'callback' => 'get_job_openings'
+        ));
+    });
+
+    function get_job_openings ($request) {
+        $page = $request->get_param('page') ? $request->get_param('page') : 1;
+        $query = new WP_Query(
+            array(
+                'post_type' => 'job-openings',
+                'paged' => $page,
+                'posts_per_page' => 4,
+            ),
+        );
+        $jobs = $query->posts;
+
+        foreach ($jobs as $job) {
+            format_job($job);
+        }
+
+        return array(
+            'jobs' => $jobs,
+            'max_num_pages' => $query->max_num_pages,
+        );
+    }
+
+?>
+
+<?php 
+     add_action('rest_api_init', function () {
+        register_rest_route('wp/v2', '/get-job-by-id/(?P<id>\d+)', array(
+            'method' => 'GET',
+            'callback' => 'get_job_by_id'
+        ));
+    });
+
+    function get_job_by_id ($request) {
+        $post_id = $request->get_param('id');
+        $post = get_post($post_id);
+        format_post($post);
+        return $post;
+    }
 
 ?>

@@ -1,2 +1,0 @@
-ACF to REST API
-Advanced Custom Fields

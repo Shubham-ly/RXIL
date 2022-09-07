@@ -1,0 +1,15 @@
+.useful__container {
+  padding-top: 52px;
+  padding-bottom: 64px;
+  background-color: #c7eafb42;
+  text-align: center;
+  .secondary-title {
+    font-weight: 800;
+    font-size: 32px;
+  }
+  p {
+    margin-top: 24px;
+    color: var(--color-secondary-purple);
+    font-size: 20px;
+  }
+}
