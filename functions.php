@@ -505,3 +505,56 @@
     }
 
 ?>
+
+<?php
+    add_action('rest_api_init', function() {
+        register_rest_route('wp/v2', '/get-faqs', array(
+            'methods' => 'GET',
+            'callback' => 'get_faqs',
+        ));
+    });
+
+    function get_faqs () {
+        $questions = get_posts(array(
+            'post_type' => 'faqs-questions',
+            'posts_per_page' => -1
+        ));
+        foreach($questions as $question) {
+            $question->{'description'} = get_field('description', $question->ID);
+            $category = get_the_terms( $question->ID, 'faqs_categories')[0];
+            $question->{'category'} = array(
+                'id' => $category->term_id,
+                'name' => $category->name,
+                'slug' => $category->slug,
+            );
+        }
+        return $questions;
+    }
+
+    add_action('rest_api_init', function () {
+        register_rest_route('wp/v2', '/get-faqs-categories', array(
+            'methods' => 'GET',
+            'callback' => 'get_faqs_categories'
+        ));
+    });
+
+    function get_faqs_categories() {
+        $categories = get_terms(array(
+            'taxonomy' => 'faqs_categories',
+            'parent' => 0,
+            'hide_empty' => 0,
+        ));
+
+        $response = array();
+
+        foreach ($categories as $category) {
+            $response[] = array (
+                'id' => $category->term_id,
+                'name' => $category->name,
+                'slug' => $category->slug,
+            );
+        }
+        return $response;
+    }
+
+?>

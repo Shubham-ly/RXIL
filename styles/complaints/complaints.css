@@ -1,0 +1,60 @@
+.complaints__container {
+  position: relative;
+  text-align: center;
+}
+.complaints__container .secondary-title {
+  margin-top: 52px;
+  isolation: isolate;
+}
+.complaints__container p {
+  color: var(--color-secondary-purple);
+  font-size: 20px;
+  margin-top: 24px;
+  isolation: isolate;
+}
+.complaints__container::before {
+  content: "";
+  position: absolute;
+  height: 294px;
+  width: 100%;
+  background-color: rgba(199, 234, 251, 0.2588235294);
+  top: 0;
+  left: 0;
+}
+
+.complaints__footer {
+  padding: 48px 72px;
+  display: flex;
+  gap: 32px;
+  color: var(--color-black);
+  justify-content: center;
+}
+.complaints__footer .secondary-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.complaints__footer figure {
+  margin-top: 30px;
+}
+.complaints__footer .description {
+  color: var(--color-secondary-purple);
+  font-size: 16px;
+  margin-top: 16px;
+}
+.complaints__footer .description a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+.complaints__footer a.description {
+  display: inline-block;
+  margin-top: 16px !important;
+  text-decoration: none;
+}
+.complaints__footer .name {
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 16px;
+}
+.complaints__footer .wrapper {
+  max-width: 632px;
+}/*# sourceMappingURL=complaints.css.map */
