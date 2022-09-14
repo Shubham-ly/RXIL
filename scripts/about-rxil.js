@@ -1,4 +1,6 @@
 // Have to use var instead of let or const because of redeclaration error in javascript
+console.log('loaded about rxil script')
+
 var moreInfoPopup = document.querySelector('#moreInfoPopup');
 var overlay = document.querySelector('#overlay');
 var showMoreButtons = document.querySelectorAll('#showMore')

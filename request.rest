@@ -20,3 +20,15 @@ GET http://127.0.0.1/blog/wp-json/wp/v2/get-page-body/home
 
 #######
 GET http://127.0.0.1/blog/wp-json/wp/v2/get-styles
+
+
+#######
+GET http://lemonyellow.net/clients/rxil/wp-json/wp/v2/get-nav-links HTTP/1.1
+
+
+#######
+GET https://lemonyellow.net/clients/rxil/wp-json/wp/v2/get-page-body/home HTTP/1.1
+
+
+#######
+GET http://127.0.0.1/blog/wp-json/wp/v2/get-page-body/about-rxil HTTP/1.1
