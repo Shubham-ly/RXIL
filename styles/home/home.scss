@@ -38,8 +38,9 @@
   display: flex;
   gap: 102px;
   justify-content: center;
-  padding-inline: 72px;
+  padding-inline: 72px !important;
   margin-top: 72px;
+  --wp--custom--spacing--outer: -72px;
 
   h4 {
     margin-top: 16px;
@@ -84,6 +85,7 @@
   background-color: #fafbff;
   margin-top: 104px;
   padding-top: 47px;
+  padding-inline: 72px !important;
 
   .primary-title {
     text-align: center;
@@ -171,10 +173,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: 72px;
+  padding-inline: 72px !important;
   padding-block: 48px;
   background-color: var(--color-purple);
   color: white;
+  width: 100% !important;
 
   .register-btn {
     background-color: white;
@@ -184,5 +187,11 @@
     border-radius: var(--border-radius);
     padding: 12px 32px;
     font-weight: 700px;
+  }
+
+  &.alignfull {
+    --wp--custom--spacing--outer: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
