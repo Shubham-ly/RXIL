@@ -9,12 +9,7 @@
 	function enqueue_scripts() {
 		wp_enqueue_style( 'flickity-css',  'https://unpkg.com/flickity@2/dist/flickity.min.css');
 		wp_enqueue_script( 'flickity-js', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js' );
-		// if (is_single('home')) {
-			wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/scripts/home.js' );
-		// }
-		if (is_single('about-rxil')) {
-			wp_enqueue_script( 'about-script', get_stylesheet_directory_uri() . '/scripts/about-rxil.js' );
-		}
+		wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/scripts/home.js' );
 	}
 
 ?>

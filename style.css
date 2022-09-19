@@ -125,10 +125,6 @@ button.primary {
   cursor: pointer;
 }
 
-header {
-  padding-left: 72px !important;
-  padding-right: 48px !important;
-}
 header div:first-of-type {
   height: 84px;
   align-items: center;
@@ -193,13 +189,6 @@ header ~ div {
   margin: 0 !important;
 }
 
-.wp-site-blocks {
-  padding: 0 !important;
-}
-.wp-site-blocks > * {
-  margin: 0;
-}
-
 footer {
   margin: 0 !important;
 }
@@ -215,7 +204,8 @@ footer {
   border-color: #efefef;
 }
 .footer .about {
-  padding: 53px 72px;
+  padding-block: 53px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 32px;
@@ -255,7 +245,7 @@ footer {
 
 .copyright-container {
   width: 100%;
-  padding: 22px 72px;
+  padding-block: 22px;
   color: #8a8a8a;
   font-size: 14px;
   display: flex;
@@ -336,24 +326,25 @@ footer {
   display: flex;
   gap: 102px;
   justify-content: center;
-  padding-inline: 72px !important;
-  margin-top: 72px;
-  --wp--custom--spacing--outer: -72px;
-}
-.home__about-rxil h4, .home__about-treds h4 {
-  margin-top: 16px;
 }
 .home__about-rxil h2, .home__about-treds h2 {
   margin-top: 8px;
 }
+.home__about-rxil .img-container, .home__about-treds .img-container {
+  max-width: 542px;
+  max-height: 452px;
+}
+.home__about-rxil .container-1, .home__about-treds .container-1 {
+  max-width: 608px;
+}
 .home__about-rxil p, .home__about-treds p {
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 18px;
   font-weight: 300;
   color: var(--color-secondary-purple);
 }
 .home__about-rxil .cta, .home__about-treds .cta {
-  margin-top: 13px;
+  margin-top: 20px;
   color: var(--color-primary);
   font-weight: 700;
   font-size: 16px;
@@ -363,14 +354,14 @@ footer {
   margin-top: 104px;
   gap: 95px;
 }
-.home__about-treds h4 {
-  margin-top: 30px;
+.home__about-treds .container-1 {
+  max-width: 608px;
 }
 .home__about-treds p {
   margin-top: 24px;
 }
-.home__about-treds p + p {
-  margin-top: 0;
+.home__about-treds .cta {
+  margin-top: 20px;
 }
 
 .home__rxil-benefits {
@@ -445,6 +436,7 @@ footer {
   max-width: -moz-fit-content;
   max-width: fit-content;
   margin-inline: auto;
+  margin-top: 48px;
 }
 .home__rxil-news .cta a {
   text-decoration: none;
@@ -455,11 +447,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: 72px !important;
-  padding-block: 48px;
   background-color: var(--color-purple);
   color: white;
-  width: 100% !important;
 }
 .home__register .register-btn {
   background-color: white;
@@ -469,11 +458,6 @@ footer {
   border-radius: var(--border-radius);
   padding: 12px 32px;
   font-weight: 700px;
-}
-.home__register.alignfull {
-  --wp--custom--spacing--outer: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
 }
 
 .about__rxil {

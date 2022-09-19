@@ -38,27 +38,29 @@
   display: flex;
   gap: 102px;
   justify-content: center;
-  padding-inline: 72px !important;
-  margin-top: 72px;
-  --wp--custom--spacing--outer: -72px;
-
-  h4 {
-    margin-top: 16px;
-  }
 
   h2 {
     margin-top: 8px;
   }
 
+  .img-container {
+    max-width: 542px;
+    max-height: 452px;
+  }
+
+  .container-1 {
+    max-width: 608px;
+  }
+
   p {
-    margin-top: 18px;
+    margin-top: 16px;
     font-size: 18px;
     font-weight: 300;
     color: var(--color-secondary-purple);
   }
 
   .cta {
-    margin-top: 13px;
+    margin-top: 20px;
     color: var(--color-primary);
     font-weight: 700;
     font-size: 16px;
@@ -70,14 +72,16 @@
   margin-top: 104px;
   gap: 95px;
 
-  h4 {
-    margin-top: 30px;
+  .container-1 {
+    max-width: 608px;
   }
+
   p {
     margin-top: 24px;
   }
-  p + p {
-    margin-top: 0;
+
+  .cta {
+    margin-top: 20px;
   }
 }
 
@@ -162,6 +166,7 @@
     text-align: center;
     max-width: fit-content;
     margin-inline: auto;
+    margin-top: 48px;
     a {
       text-decoration: none;
       color: inherit;
@@ -173,11 +178,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: 72px !important;
-  padding-block: 48px;
   background-color: var(--color-purple);
   color: white;
-  width: 100% !important;
 
   .register-btn {
     background-color: white;
@@ -187,11 +189,5 @@
     border-radius: var(--border-radius);
     padding: 12px 32px;
     font-weight: 700px;
-  }
-
-  &.alignfull {
-    --wp--custom--spacing--outer: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
   }
 }

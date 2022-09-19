@@ -125,8 +125,6 @@ button.primary {
 }
 
 header {
-  padding-left: 72px !important;
-  padding-right: 48px !important;
   div:first-of-type {
     height: 84px;
     align-items: center;
@@ -196,10 +194,10 @@ header ~ div {
 }
 
 .wp-site-blocks {
-  padding: 0 !important;
-  & > * {
-    margin: 0;
-  }
+  // padding: 0 !important;
+  // & > * {
+  //   margin: 0;
+  // }
 }
 
 footer {
@@ -218,7 +216,8 @@ footer {
   }
 
   .about {
-    padding: 53px 72px;
+    padding-block: 53px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 32px;
@@ -263,7 +262,7 @@ footer {
 
 .copyright-container {
   width: 100%;
-  padding: 22px 72px;
+  padding-block: 22px;
   color: #8a8a8a;
   font-size: 14px;
   display: flex;
