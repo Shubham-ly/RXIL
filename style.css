@@ -177,6 +177,9 @@ header .wp-block-navigation__submenu-container {
   transition-timing-function: ease-out;
   z-index: 10;
 }
+header .wp-block-navigation__submenu-container li {
+  min-width: 250px;
+}
 
 header ~ div {
   -webkit-margin-before: 0 !important;
@@ -286,6 +289,15 @@ footer {
 .nav-button.primary {
   background-color: var(--color-primary);
   color: white;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.info-footer {
+  margin-left: -100px;
+  margin-right: -100px;
 }
 
 .home__sticky-social {
@@ -464,7 +476,11 @@ footer {
   padding: 80px 72px;
   background: linear-gradient(0deg, rgba(199, 234, 251, 0.2), rgba(199, 234, 251, 0.2)), linear-gradient(0deg, #fafbff, #fafbff);
   display: flex;
+  justify-content: center;
   gap: 48px;
+}
+.about__rxil .about-container {
+  max-width: 658px;
 }
 .about__rxil .about-container h4 {
   font-size: 32px;
@@ -476,6 +492,14 @@ footer {
   font-size: 20px;
   line-height: 30px;
   color: var(--color-secondary-purple);
+}
+
+.about__defines {
+  display: flex;
+  justify-content: center;
+}
+.about__defines .about-lists {
+  max-width: 632px;
 }
 
 .about__principles {
@@ -493,6 +517,8 @@ footer {
   margin-top: 56px;
   display: flex;
   gap: 70px;
+  display: flex;
+  justify-content: center;
 }
 .about__principles .inner-content .title {
   margin: 0;
@@ -505,6 +531,9 @@ footer {
   font-weight: 300;
   font-size: 18px;
   color: var(--color-secondary-purple);
+}
+.about__principles .flex-1 {
+  flex: 1;
 }
 
 .about__i-care {
@@ -560,6 +589,7 @@ footer {
 .treds__about {
   padding: 80px 48px 152px 72px;
   display: flex;
+  justify-content: center;
   gap: 78px;
   background: linear-gradient(0deg, rgba(199, 234, 251, 0.26), rgba(199, 234, 251, 0.26)), linear-gradient(0deg, #fafbff, #fafbff);
 }
@@ -589,19 +619,19 @@ footer {
   display: flex;
   gap: 34px;
   position: relative;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+  justify-content: center;
+  align-items: flex-start;
 }
 .treds__register .process-container::before {
   content: "";
   position: absolute;
   height: 2px;
-  width: 100%;
+  width: 60%;
   background-color: var(--color-primary);
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  left: 20%;
+  opacity: 0.4;
+  transform: translateY(-20%);
 }
 .treds__register .register-button {
   padding: 12px 40px;
@@ -645,7 +675,7 @@ footer {
   margin-top: 67px;
 }
 .treds__exchange-process .image {
-  margin-top: 48px;
+  margin-top: 56px;
   display: flex;
   justify-content: center;
 }

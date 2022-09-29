@@ -45,6 +45,35 @@
 		register_taxonomy_for_object_type('resource-category', 'attachment');
 	});
 
+	add_action('rest_api_init', function () {
+        register_rest_route('wp/v2', '/get-resource-categories', array(
+            'method' => 'GET',
+            'callback' => 'get_resource_categories'
+        ));
+    });
+	
+    function get_resource_categories() {
+
+        $categories = get_terms(array(
+            'taxonomy' => 'resource-category',
+            'parent'   => 0,
+            "hide_empty" => 0,
+        ));
+
+        $response = array();
+
+        foreach (array_reverse($categories) as $category) {
+            $response[] = array(
+                'id' => $category->term_id,
+                'name' => $category->name,
+                'slug' => $category->slug,
+                
+            );
+        }
+
+        return $response;
+    }
+
 ?>
 
 <?php 

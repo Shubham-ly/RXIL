@@ -7,9 +7,11 @@
     ),
     linear-gradient(0deg, #fafbff, #fafbff);
   display: flex;
+  justify-content: center;
   gap: 48px;
 
   .about-container {
+    max-width: 658px;
     h4 {
       font-size: 32px;
       font-weight: 800;
@@ -21,6 +23,14 @@
       line-height: 30px;
       color: var(--color-secondary-purple);
     }
+  }
+}
+
+.about__defines {
+  display: flex;
+  justify-content: center;
+  .about-lists {
+    max-width: 632px;
   }
 }
 
@@ -41,6 +51,8 @@
     margin-top: 56px;
     display: flex;
     gap: 70px;
+    display: flex;
+    justify-content: center;
 
     .title {
       margin: 0;
@@ -54,6 +66,9 @@
       font-size: 18px;
       color: var(--color-secondary-purple);
     }
+  }
+  .flex-1 {
+    flex: 1;
   }
 }
 

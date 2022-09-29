@@ -1,6 +1,7 @@
 .treds__about {
   padding: 80px 48px 152px 72px;
   display: flex;
+  justify-content: center;
   gap: 78px;
   background: linear-gradient(
       0deg,
@@ -40,17 +41,19 @@
     display: flex;
     gap: 34px;
     position: relative;
-    max-width: fit-content;
+    justify-content: center;
+    align-items: flex-start;
   }
   .process-container::before {
     content: "";
     position: absolute;
     height: 2px;
-    width: 100%;
+    width: 60%;
     background-color: var(--color-primary);
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    left: 20%;
+    opacity: 0.4;
+    transform: translateY(-20%);
   }
 
   .register-button {
@@ -95,7 +98,7 @@
     margin-top: 67px;
   }
   .image {
-    margin-top: 48px;
+    margin-top: 56px;
     display: flex;
     justify-content: center;
   }

@@ -181,6 +181,10 @@ header {
     transition-duration: 150ms;
     transition-timing-function: ease-out;
     z-index: 10;
+
+    li {
+      min-width: 250px;
+    }
   }
 }
 
@@ -308,6 +312,15 @@ footer {
     background-color: var(--color-primary);
     color: white;
   }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.info-footer {
+  margin-left: -100px;
+  margin-right: -100px;
 }
 
 @import "./styles/home/home.scss";

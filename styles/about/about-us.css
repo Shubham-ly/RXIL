@@ -2,7 +2,11 @@
   padding: 80px 72px;
   background: linear-gradient(0deg, rgba(199, 234, 251, 0.2), rgba(199, 234, 251, 0.2)), linear-gradient(0deg, #fafbff, #fafbff);
   display: flex;
+  justify-content: center;
   gap: 48px;
+}
+.about__rxil .about-container {
+  max-width: 658px;
 }
 .about__rxil .about-container h4 {
   font-size: 32px;
@@ -14,6 +18,14 @@
   font-size: 20px;
   line-height: 30px;
   color: var(--color-secondary-purple);
+}
+
+.about__defines {
+  display: flex;
+  justify-content: center;
+}
+.about__defines .about-lists {
+  max-width: 632px;
 }
 
 .about__principles {
@@ -31,6 +43,8 @@
   margin-top: 56px;
   display: flex;
   gap: 70px;
+  display: flex;
+  justify-content: center;
 }
 .about__principles .inner-content .title {
   margin: 0;
@@ -43,6 +57,9 @@
   font-weight: 300;
   font-size: 18px;
   color: var(--color-secondary-purple);
+}
+.about__principles .flex-1 {
+  flex: 1;
 }
 
 .about__i-care {

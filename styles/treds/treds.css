@@ -1,6 +1,7 @@
 .treds__about {
   padding: 80px 48px 152px 72px;
   display: flex;
+  justify-content: center;
   gap: 78px;
   background: linear-gradient(0deg, rgba(199, 234, 251, 0.26), rgba(199, 234, 251, 0.26)), linear-gradient(0deg, #fafbff, #fafbff);
 }
@@ -30,19 +31,19 @@
   display: flex;
   gap: 34px;
   position: relative;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+  justify-content: center;
+  align-items: flex-start;
 }
 .treds__register .process-container::before {
   content: "";
   position: absolute;
   height: 2px;
-  width: 100%;
+  width: 60%;
   background-color: var(--color-primary);
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  left: 20%;
+  opacity: 0.4;
+  transform: translateY(-20%);
 }
 .treds__register .register-button {
   padding: 12px 40px;
@@ -86,7 +87,7 @@
   margin-top: 67px;
 }
 .treds__exchange-process .image {
-  margin-top: 48px;
+  margin-top: 56px;
   display: flex;
   justify-content: center;
 }/*# sourceMappingURL=treds.css.map */

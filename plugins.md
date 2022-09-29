@@ -16,3 +16,5 @@ miniOrange 2-Factor
 Limit Login Attempts
 
 Inactive Logout
+
+Yoast SEO
