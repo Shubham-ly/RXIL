@@ -4,6 +4,9 @@
   display: flex;
   justify-content: center;
   gap: 48px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 .about__rxil .about-container {
   max-width: 658px;
@@ -18,6 +21,29 @@
   font-size: 20px;
   line-height: 30px;
   color: var(--color-secondary-purple);
+}
+.about__rxil::after, .about__rxil::before {
+  content: "";
+  background-image: url("http://www.lemonyellow.net/public_html/clients/rxil/wp-content/themes/twentytwentytwo-child/assets/pulse.gif");
+  background-position: top left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -40%;
+  left: 0;
+  height: 375px;
+  width: 152px;
+}
+.about__rxil::before {
+  transform: rotateY(-180deg);
+}
+.about__rxil::after {
+  top: initial;
+  left: initial;
+  bottom: -30%;
+  right: 0%;
+  background-attachment: initial;
 }
 
 .about__defines {

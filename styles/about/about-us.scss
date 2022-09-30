@@ -9,6 +9,9 @@
   display: flex;
   justify-content: center;
   gap: 48px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
   .about-container {
     max-width: 658px;
@@ -23,6 +26,30 @@
       line-height: 30px;
       color: var(--color-secondary-purple);
     }
+  }
+  &::after,
+  &::before {
+    content: "";
+    background-image: url("http://www.lemonyellow.net/public_html/clients/rxil/wp-content/themes/twentytwentytwo-child/assets/pulse.gif");
+    background-position: top left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -40%;
+    left: 0;
+    height: 375px;
+    width: 152px;
+  }
+  &::before {
+    transform: rotateY(-180deg);
+  }
+  &::after {
+    top: initial;
+    left: initial;
+    bottom: -30%;
+    right: 0%;
+    background-attachment: initial;
   }
 }
 

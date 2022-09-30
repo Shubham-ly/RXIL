@@ -161,6 +161,9 @@ header {
       background-color: var(--color-primary);
       width: 100%;
     }
+    li li a::after {
+      display: none;
+    }
 
     li:hover button svg {
       transform: rotateZ(-180deg);
@@ -332,3 +335,4 @@ body {
 @import "./styles/careers/careers.scss";
 @import "./styles/useful/useful-links.scss";
 @import "./styles/complaints/complaints.scss";
+@import "./styles/faqs/faqs.scss";

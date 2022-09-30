@@ -157,6 +157,9 @@ header .wp-block-navigation__container li.current-menu-item a::after {
   background-color: var(--color-primary);
   width: 100%;
 }
+header .wp-block-navigation__container li li a::after {
+  display: none;
+}
 header .wp-block-navigation__container li:hover button svg {
   transform: rotateZ(-180deg);
 }
@@ -478,6 +481,9 @@ body {
   display: flex;
   justify-content: center;
   gap: 48px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 .about__rxil .about-container {
   max-width: 658px;
@@ -492,6 +498,29 @@ body {
   font-size: 20px;
   line-height: 30px;
   color: var(--color-secondary-purple);
+}
+.about__rxil::after, .about__rxil::before {
+  content: "";
+  background-image: url("http://www.lemonyellow.net/public_html/clients/rxil/wp-content/themes/twentytwentytwo-child/assets/pulse.gif");
+  background-position: top left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -40%;
+  left: 0;
+  height: 375px;
+  width: 152px;
+}
+.about__rxil::before {
+  transform: rotateY(-180deg);
+}
+.about__rxil::after {
+  top: initial;
+  left: initial;
+  bottom: -30%;
+  right: 0%;
+  background-attachment: initial;
 }
 
 .about__defines {
@@ -923,4 +952,24 @@ body {
 }
 .complaints__footer .wrapper {
   max-width: 632px;
+}
+
+.faqs__header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.faqs__header::before {
+  content: "";
+  background-image: url("http://www.lemonyellow.net/public_html/clients/rxil/wp-content/themes/twentytwentytwo-child/assets/pulse.gif");
+  background-position: top left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -60%;
+  left: 0;
+  height: 375px;
+  width: 152px;
+  transform: rotateY(-180deg);
 }/*# sourceMappingURL=style.css.map */

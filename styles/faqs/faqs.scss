@@ -1,0 +1,20 @@
+.faqs__header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    background-image: url("http://www.lemonyellow.net/public_html/clients/rxil/wp-content/themes/twentytwentytwo-child/assets/pulse.gif");
+    background-position: top left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -60%;
+    left: 0;
+    height: 375px;
+    width: 152px;
+    transform: rotateY(-180deg);
+  }
+}
